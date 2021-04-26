@@ -3,8 +3,11 @@
 import requests
 import threading
 
+# Enter the scammer's url
 url = ''
 
+# Modify the data variable to attack whatever user input parameters needed.
+# This one is a login page.
 data = {
 
     'Email': '',
