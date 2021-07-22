@@ -9,8 +9,8 @@ import os.path
 url = ''
 
 # This one is a login page. Edit the directory paths and filenames according to your settings
-Email = '/usr/share/wordlists/all.txt'
-Password = '/usr/share/wordlists/Passwords/passwordlist.txt'
+Email = '/usr/share/wordlists/emails.txt'
+Password = '/usr/share/wordlists/Passwords/passwdlist.txt'
 
 def queueRequests():
     while True:
