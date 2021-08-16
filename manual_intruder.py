@@ -4,11 +4,11 @@ import requests
 import threading
 import os.path
 
-# Enter the scammer's url
-#url = 'https://scammerwebapp/login'
+# Enter the target's url
+#url = 'https://targetedwebapp/login'
 url = ''
 
-# This one is a login page. Edit the directory paths and filenames according to your settings
+# This one is a login page. Edit the directory paths and filenames according to your settings.
 Email = '/usr/share/wordlists/emails.txt'
 Password = '/usr/share/wordlists/Passwords/passwdlist.txt'
 
@@ -31,6 +31,7 @@ def handleResponse(req, interesting):
 
 threads = []
 
+# This will loop indefinitly. Hit conrol + c to stop.
 for i in range(50):
         t = threading.Thread(target=queueRequests)
         t.daemon = True
@@ -42,3 +43,4 @@ for i in range(50):
 for i in range(50):
     threads[i].join()
 
+    
